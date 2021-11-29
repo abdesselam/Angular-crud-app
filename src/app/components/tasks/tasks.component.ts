@@ -35,14 +35,14 @@ export class TasksComponent implements OnInit {
   deleteTask(id? :number){
     this.taskService.delete(id).subscribe(
       ()=>{
-        this.tasks = this.tasks.filter(task=>task.id != id)
+        this.resultTasks = this.tasks = this.tasks.filter(task=>task.id != id)
       }
     )
   }
 persistTask(){
   this.taskService.persist(this.myTask).subscribe(
     task => {
-      this.tasks = [task,...this.tasks]
+      this.resultTasks = this.tasks = [task,...this.tasks]
       this.restTask();
       this.showForm = false;
     }
